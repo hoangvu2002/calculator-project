@@ -15,3 +15,9 @@ const mulitply = function(a, b) {
 const divide = function(a, b) {
 	return b===0 ? "Can't divide with zero" : a / b;
 };
+//Each operation will contain 3 parts: the first number, the operator,
+//the second number. Create a variable for each part
+
+let firstNum;
+let operator;
+let secondNum;
