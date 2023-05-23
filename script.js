@@ -41,3 +41,7 @@ function operate(operator, num1, num2) {
     
       return operations[operator](num1,num2);
 }
+
+button = document.querySelector(".buttons");
+button.style.cssText = "display: flex";
+
