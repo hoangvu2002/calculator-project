@@ -42,6 +42,12 @@ function operate(operator, num1, num2) {
       return operations[operator](num1,num2);
 }
 
-button = document.querySelector(".buttons");
-button.style.cssText = "display: fle";
+display=document.querySelector("#display");
+
+//Now we will create functions so that when we click the buttons
+// it will append the numbers to the display
+function append(number) {
+    display.value += `${number}`;
+}
+
 
