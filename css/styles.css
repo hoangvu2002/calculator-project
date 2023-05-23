@@ -1,3 +1,16 @@
 body {
-    background-color: aqua;
+    background-color: rgb(145, 120, 52);
+}
+
+.row {
+    display: flex;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.row button {
+    flex: 1;
 }
