@@ -21,3 +21,15 @@ const divide = function(a, b) {
 let firstNum;
 let operator;
 let secondNum;
+
+//Create a new function operate that takes an operator 
+//and 2 numbers and then calls one of the above functions on the numbers.
+
+//First, I need to create an object storing all the operations
+
+const operations = {
+    "+": add,
+    "-": subtract,
+    "*": mulitply,
+    "/": divide,
+}
