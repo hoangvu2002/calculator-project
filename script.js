@@ -33,3 +33,11 @@ const operations = {
     "*": mulitply,
     "/": divide,
 }
+
+function operate(operator, num1, num2) {
+    if (!operations[operator] || isNaN(num1) || isNaN(num2)) {
+        return NaN;
+      }
+    
+      return operations[operator](num1,num2);
+}
