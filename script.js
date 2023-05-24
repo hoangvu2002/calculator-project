@@ -18,9 +18,9 @@ const divide = function(a, b) {
 //Each operation will contain 3 parts: the first number, the operator,
 //the second number. Create a variable for each part
 
-let firstNum;
-let operator;
-let secondNum;
+let firstNum = 0;
+let operator = "";
+let secondNum = 0;
 
 //Create a new function operate that takes an operator 
 //and 2 numbers and then calls one of the above functions on the numbers.
@@ -49,5 +49,24 @@ display=document.querySelector("#display");
 function append(number) {
     display.value += `${number}`;
 }
+
+//Create an algorithm for calculation 
+
+while ((secondNum===0)&&(operator!=="")) {
+    firstNum = +display.value
+}
+
+while (operator !== "") {
+    secondNum = +display.value; 
+}
+
+equal = document.querySelector(".equal");
+equal.addEventListener("click", () => {
+    if ((operator!=="")&&(secondNum===0)) {
+        console.log("You can't divide by zero");
+    } else if (operator!=="") {
+        display.value = operations[operator](firstNum,secondNum);
+    }
+});
 
 
