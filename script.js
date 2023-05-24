@@ -48,15 +48,19 @@ display=document.querySelector("#display");
 // it will append the numbers to the display
 function append(number) {
     display.value += `${number}`;
+
+    if (operator === "") {
+        firstNum = parseFloat(display.value);
+    }
 }
 
 //Create an algorithm for calculation 
 
-while ((secondNum===0)&&(operator!=="")) {
-    firstNum = +display.value
+if ((secondNum===0)&&(operator=="")) {
+    firstNum=+display.value;
 }
 
-while (operator !== "") {
+if (operator !== "") {
     secondNum = +display.value; 
 }
 
@@ -69,4 +73,12 @@ equal.addEventListener("click", () => {
     }
 });
 
+operatorButtons = document.querySelectorAll(".operation");
+operatorButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        if (operator === "") {
+            operator = button.textContent;
+        }
+    })
+})
 
