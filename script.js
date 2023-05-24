@@ -48,10 +48,12 @@ display=document.querySelector("#display");
 // it will append the numbers to the display
 function append(number) {
     display.value += `${number}`;
-
-    if (operator === "") {
-        firstNum = parseFloat(display.value);
-    }
+    operand = display.value.split(/[+\-*/]/)
+    //if (operator === "") {
+    //    firstNum = parseFloat(display.value);
+    //}
+    firstNum = parseFloat(operand[0]);
+    secondNum = parseFloat(operand[1]);
 }
 
 //Create an algorithm for calculation 
@@ -66,10 +68,19 @@ if (operator !== "") {
 
 equal = document.querySelector(".equal");
 equal.addEventListener("click", () => {
-    if ((operator!=="")&&(secondNum===0)) {
+    if ((operator==="/")&&(secondNum===0)) {
         console.log("You can't divide by zero");
     } else if (operator!=="") {
-        display.value = operations[operator](firstNum,secondNum);
+        ////insert
+        //secondNum = parseFloat(display.value);
+        ////
+        result.value = operations[operator](firstNum,secondNum);
+
+        ////isert//
+        //firstNum = parseFloat(display.value); // Update firstNum for subsequent calculations
+        operator = ""; // Reset operator after calculation
+        //secondNum = 0;
+        //
     }
 });
 
@@ -77,6 +88,10 @@ operatorButtons = document.querySelectorAll(".operation");
 operatorButtons.forEach((button) => {
     button.addEventListener("click", () => {
         if (operator === "") {
+            operator = button.textContent;
+        } else {
+            secondNum = parseFloat(display.value);
+            display.value = "";
             operator = button.textContent;
         }
     })

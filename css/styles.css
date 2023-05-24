@@ -14,3 +14,15 @@ body {
 .row button {
     flex: 1;
 }
+
+.bars {
+    display: flex;
+}
+
+#display {
+    flex: 2;
+}
+
+#result {
+    flex: 1;
+}

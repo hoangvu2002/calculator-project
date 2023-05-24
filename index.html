@@ -9,7 +9,10 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <input type="text" id="display" disabled>
+    <div class="bars">
+        <input class="bar" type="text" id="display" disabled>
+        <input class="bar" type="text" id="result" disabled>
+    </div>
 <!--The iThe purpose of the disabled attribute is to disable 
     user interaction with the input field. When an input 
     field is disabled, it means that the user cannot edit or
@@ -37,7 +40,7 @@
             <button onclick="append(0)">0</button>        
             <button onclick="append(`.`)">.</button>       
             <button class="operation"  onclick="append(`/`)">/</button>
-            <button class="equal" onclick="append(`=`)">=</button>            
+            <button class="equal">=</button>            
         </div>
         <div class="row">
             <button onclick="display.value=``">Clear</button>
