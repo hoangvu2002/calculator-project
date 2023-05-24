@@ -43,9 +43,25 @@ function operate(operator, num1, num2) {
 }
 
 display=document.querySelector("#display");
-
+let expression= display.value;
+let operatorRegex = /[+\-*/]/;
 //Now we will create functions so that when we click the buttons
 // it will append the numbers to the display
+delButton = document.querySelector(".delete");
+delButton.addEventListener("click", () => {
+    display.value = display.value.slice(0,-1);
+    operand = display.value.split(/[+\-*/]/);
+    firstNum = parseFloat(operand[0]);
+    secondNum = parseFloat(operand[1]);
+    
+    expression = display.value;
+    if (display.value.test(operatorRegex)) {
+        operator = display.value.match(/[+\-*/]/)[0];
+    } else {
+        operator="";
+    }
+})
+
 function append(number) {
     display.value += `${number}`;
     operand = display.value.split(/[+\-*/]/)
@@ -81,6 +97,8 @@ equal.addEventListener("click", () => {
         operator = ""; // Reset operator after calculation
         //secondNum = 0;
         //
+        firstNum = 0;
+        secondNum = 0;
     }
 });
 
