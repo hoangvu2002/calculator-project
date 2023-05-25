@@ -96,12 +96,13 @@ equal.addEventListener("click", () => {
 
         ////isert//
         //firstNum = parseFloat(display.value); // Update firstNum for subsequent calculations
-        operator = ""; // Reset operator after calculation
-        //secondNum = 0;
-        //
-        firstNum = 0;
-        secondNum = 0;
+
     }
+    operator = ""; // Reset operator after calculation
+    //secondNum = 0;
+    //
+    firstNum = 0;
+    secondNum = 0;
 });
 
 operatorButtons = document.querySelectorAll(".operation");
