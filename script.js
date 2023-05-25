@@ -105,6 +105,8 @@ equal.addEventListener("click", () => {
     secondNum = 0;
 });
 
+let subOperator = "";
+
 operatorButtons = document.querySelectorAll(".operation");
 operatorButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -121,10 +123,24 @@ operatorButtons.forEach((button) => {
             operator = `${button.textContent}`;
         } else if ((operator!=="")&&!(typeof preAnwer === "undefined")) {
             //operator = button.textContent;
-            preAnwer = operations[button.textContent](firstNum,secondNum);
+            preAnwer = operations[operator](firstNum,secondNum);
             display.value = `${preAnwer}`+`${button.textContent}`;
-            result.value = operations[button.textContent](firstNum,secondNum);
+            //result.value = operations[operator](firstNum,secondNum);
             operator = `${button.textContent}`;
+
+            //debug
+            //subOperator = operator.slice();
+            //debug
+        } else if ((operator==="")&&(firstNum===0)&&(secondNum===0)&&!(typeof preAnwer==="undefined")) {
+            operator = `${button.textContent}`;
+            display.value = `${preAnwer}` + `${operator}`
+            result.display = operations[button.textContent](firstNum,secondNum);
+        } else if ((operator!=="")&&(firstNum!==0)&&(secondNum!==0)&&!(typeof preAnwer==="undefined")) {
+            //result.value = operations[operator](firstNum,secondNum);
+            //operator = display.value.match(/[+\-*/]/)[0];
+            result.value = operations[operator](firstNum,secondNum);
+            display.value = `${preAnwer}`+`${button.textContent}`;
+            //operator = `${button.textContent}`;
         }
     })
 })
