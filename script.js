@@ -18,9 +18,9 @@ const divide = function(a, b) {
 //Each operation will contain 3 parts: the first number, the operator,
 //the second number. Create a variable for each part
 
-let firstNum = 0;
+let firstNum = NaN;
 let operator = "";
-let secondNum = 0;
+let secondNum = NaN;
 
 //Create a new function operate that takes an operator 
 //and 2 numbers and then calls one of the above functions on the numbers.
@@ -93,7 +93,7 @@ equal.addEventListener("click", () => {
         //secondNum = parseFloat(display.value);
         ////
         result.value = operations[operator](firstNum,secondNum);
-
+        preAnwer = operations[operator](firstNum,secondNum);
         ////isert//
         //firstNum = parseFloat(display.value); // Update firstNum for subsequent calculations
 
@@ -110,10 +110,21 @@ operatorButtons.forEach((button) => {
     button.addEventListener("click", () => {
         if (operator === "") {
             operator = button.textContent;
-        } else {
-            secondNum = parseFloat(display.value);
-            display.value = "";
-            operator = button.textContent;
+        } else if ((operator!=="")&&(typeof preAnwer === "undefined")){
+            //secondNum = parseFloat(display.value);
+            //display.value = "";
+            //operator = button.textContent;
+            preAnwer = operations[operator](firstNum,secondNum);
+            display.value = `${preAnwer}`+`${button.textContent}`;
+            //display.value = "";
+            //firstNum = 0;
+            operator = `${button.textContent}`;
+        } else if ((operator!=="")&&!(typeof preAnwer === "undefined")) {
+            //operator = button.textContent;
+            preAnwer = operations[button.textContent](firstNum,secondNum);
+            display.value = `${preAnwer}`+`${button.textContent}`;
+            result.value = operations[button.textContent](firstNum,secondNum);
+            operator = `${button.textContent}`;
         }
     })
 })
