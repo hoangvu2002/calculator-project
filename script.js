@@ -168,7 +168,10 @@ operatorButtons.forEach((button) => {
 let preAnwer;
 clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
-    preAnwer = +result.value;
+    preAnwer = undefined;
+    firstNum = 0;
+    secondNum = 0;
+    operator = "";
     result.value = "";
 })
 
