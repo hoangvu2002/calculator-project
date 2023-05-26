@@ -57,6 +57,7 @@ delButton.addEventListener("click", () => {
     for (oper of operatorArray) {
         if (display.value.includes(oper)) {
             operator = display.value.match(/[+\-*/]/)[0];
+            break;
         } else {
             operator = "";
         }
