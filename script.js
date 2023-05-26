@@ -76,6 +76,20 @@ function append(number) {
 
 //Create an algorithm for calculation 
 
+//Modify the on click event of operators
+const plusBtn = document.querySelector("#plus");
+plusBtn.addEventListener("click", () => append(`+`));
+
+const subtractBtn = document.querySelector("#subtract");
+subtractBtn.addEventListener("click", () => append(`-`));
+
+const multiplyBtn = document.querySelector("#multiply");
+multiplyBtn.addEventListener("click", () => append(`*`));
+
+const divideBtn = document.querySelector("#divide");
+divideBtn.addEventListener("click", () => append(`/`));
+
+
 if ((secondNum===0)&&(operator=="")) {
     firstNum=+display.value;
 }
@@ -87,7 +101,7 @@ if (operator !== "") {
 equal = document.querySelector(".equal");
 equal.addEventListener("click", () => {
     if ((operator==="/")&&(secondNum===0)) {
-        console.log("You can't divide by zero");
+        alert("You can't divide by zero");
     } else if (operator!=="") {
         ////insert
         //secondNum = parseFloat(display.value);
@@ -96,8 +110,9 @@ equal.addEventListener("click", () => {
         preAnwer = operations[operator](firstNum,secondNum);
         ////isert//
         //firstNum = parseFloat(display.value); // Update firstNum for subsequent calculations
+        display.value = ``;
+    } //else if ((operator==="")&&(firstNum===NaN)&&(secondNum===NaN)&&(typeof preAnwer !=="undefined")) {
 
-    }
     operator = ""; // Reset operator after calculation
     //secondNum = 0;
     //
@@ -110,7 +125,7 @@ let subOperator = "";
 operatorButtons = document.querySelectorAll(".operation");
 operatorButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        if (operator === "") {
+        if ((operator === "")/*&&(typeof preAnwer ==="undefined")*/) {
             operator = button.textContent;
         } else if ((operator!=="")&&(typeof preAnwer === "undefined")){
             //secondNum = parseFloat(display.value);
@@ -132,9 +147,15 @@ operatorButtons.forEach((button) => {
             //subOperator = operator.slice();
             //debug
         } else if ((operator==="")&&(firstNum===0)&&(secondNum===0)&&!(typeof preAnwer==="undefined")) {
-            operator = `${button.textContent}`;
-            display.value = `${preAnwer}` + `${operator}`
-            result.display = operations[button.textContent](firstNum,secondNum);
+            //operator = `${button.textContent}`;
+            //display.value = `${preAnwer}` + `${operator}`;
+            //result.display = operations[button.textContent](firstNum,secondNum);
+
+            //debug
+            operator = button.textContent;
+            //firstNum = preAnwer;
+            display.value = preAnwer + operator;
+            //debug
         } else if ((operator!=="")&&(firstNum!==0)&&(secondNum!==0)&&!(typeof preAnwer==="undefined")) {
             //result.value = operations[operator](firstNum,secondNum);
             //operator = display.value.match(/[+\-*/]/)[0];
