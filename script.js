@@ -1,19 +1,19 @@
 // Create a function add
 const add = function(a, b) {
-    return a + b;
+    return parseFloat((a + b).toFixed(4));
       
 };
 // Create a function subtract
 const subtract = function(a, b) {
-	return a - b;
+	return parseFloat((a - b).toFixed(4));
 };
 //Create a mulitply function 
 const mulitply = function(a, b) {
-	return a * b;
+	return parseFloat((a * b).toFixed(4));
 };
 //Create a divide function 
 const divide = function(a, b) {
-	return b===0 ? "Can't divide with zero" : a / b;
+	return b===0 ? "Can't divide with zero" : parseFloat((a / b).toFixed(4));
 };
 //Each operation will contain 3 parts: the first number, the operator,
 //the second number. Create a variable for each part
@@ -39,7 +39,7 @@ function operate(operator, num1, num2) {
         return NaN;
       }
     
-      return operations[operator](num1,num2);
+      return parserFloat(operations[operator](num1,num2).toFixed(4));
 
 }
 
@@ -131,6 +131,7 @@ operatorButtons.forEach((button) => {
             operator = button.textContent;
 
             result.value = '';
+
         } else if ((operator!=="")&&(typeof preAnwer === "undefined")){
             //secondNum = parseFloat(display.value);
             //display.value = "";
@@ -142,6 +143,8 @@ operatorButtons.forEach((button) => {
             operator = `${button.textContent}`;
 
             result.value = '';
+
+
         } else if ((operator!=="")&&!(typeof preAnwer === "undefined")) {
             //operator = button.textContent;
             preAnwer = operations[operator](firstNum,secondNum);
@@ -153,6 +156,8 @@ operatorButtons.forEach((button) => {
             //debug
             //subOperator = operator.slice();
             //debug
+
+
         } else if ((operator==="")&&(firstNum===0)&&(secondNum===0)&&!(typeof preAnwer==="undefined")) {
             //operator = `${button.textContent}`;
             //display.value = `${preAnwer}` + `${operator}`;
@@ -165,6 +170,8 @@ operatorButtons.forEach((button) => {
 
             result.value = '';
             //debug
+
+
         } else if ((operator!=="")&&(firstNum!==0)&&(secondNum!==0)&&!(typeof preAnwer==="undefined")) {
             //result.value = operations[operator](firstNum,secondNum);
             //operator = display.value.match(/[+\-*/]/)[0];
@@ -172,8 +179,10 @@ operatorButtons.forEach((button) => {
             display.value = `${preAnwer}`+`${button.textContent}`;
             //operator = `${button.textContent}`;
 
+
             
         }
+
     })
 })
 let preAnwer;
@@ -196,5 +205,6 @@ clear.addEventListener("click", () => {
 //    }
 //}
 
-const body = document.querySelector("body");
-body.style.fontFamily = 'YourFontFamily, sans-serif';
+if ((result.value!=="")&&(typeof result.value !== "undefined")) {
+    result.value = (+result.value).toFixed(4);
+}

@@ -112,6 +112,7 @@ body {
 
 #result {
     flex: 1;
+    max-width: 136px;
 }
 
 .bars,
