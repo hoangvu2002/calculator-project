@@ -40,6 +40,7 @@ function operate(operator, num1, num2) {
       }
     
       return operations[operator](num1,num2);
+
 }
 
 display=document.querySelector("#display");
@@ -111,7 +112,7 @@ equal.addEventListener("click", () => {
         preAnwer = operations[operator](firstNum,secondNum);
         ////isert//
         //firstNum = parseFloat(display.value); // Update firstNum for subsequent calculations
-        display.value = ``;
+        display.value = `${preAnwer}`;
     } //else if ((operator==="")&&(firstNum===NaN)&&(secondNum===NaN)&&(typeof preAnwer !=="undefined")) {
 
     operator = ""; // Reset operator after calculation
@@ -128,6 +129,8 @@ operatorButtons.forEach((button) => {
     button.addEventListener("click", () => {
         if ((operator === "")/*&&(typeof preAnwer ==="undefined")*/) {
             operator = button.textContent;
+
+            result.value = '';
         } else if ((operator!=="")&&(typeof preAnwer === "undefined")){
             //secondNum = parseFloat(display.value);
             //display.value = "";
@@ -137,6 +140,8 @@ operatorButtons.forEach((button) => {
             //display.value = "";
             //firstNum = 0;
             operator = `${button.textContent}`;
+
+            result.value = '';
         } else if ((operator!=="")&&!(typeof preAnwer === "undefined")) {
             //operator = button.textContent;
             preAnwer = operations[operator](firstNum,secondNum);
@@ -144,6 +149,7 @@ operatorButtons.forEach((button) => {
             //result.value = operations[operator](firstNum,secondNum);
             operator = `${button.textContent}`;
 
+            result.value = '';
             //debug
             //subOperator = operator.slice();
             //debug
@@ -156,6 +162,8 @@ operatorButtons.forEach((button) => {
             operator = button.textContent;
             //firstNum = preAnwer;
             display.value = preAnwer + operator;
+
+            result.value = '';
             //debug
         } else if ((operator!=="")&&(firstNum!==0)&&(secondNum!==0)&&!(typeof preAnwer==="undefined")) {
             //result.value = operations[operator](firstNum,secondNum);
@@ -163,6 +171,8 @@ operatorButtons.forEach((button) => {
             result.value = operations[operator](firstNum,secondNum);
             display.value = `${preAnwer}`+`${button.textContent}`;
             //operator = `${button.textContent}`;
+
+            
         }
     })
 })
@@ -185,3 +195,6 @@ clear.addEventListener("click", () => {
 //        console.log("no");
 //    }
 //}
+
+const body = document.querySelector("body");
+body.style.fontFamily = 'YourFontFamily, sans-serif';

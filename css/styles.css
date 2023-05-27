@@ -1,9 +1,17 @@
+/*@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
 body {
-    background-color: rgb(145, 120, 52);
+    background-color: rgb(175, 175, 202);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
 }
 
 .row {
     display: flex;
+    width: 450px;
 }
 
 .buttons {
@@ -15,8 +23,87 @@ body {
     flex: 1;
 }
 
+
+#display {
+    flex: 2;
+}
+
+#result {
+    flex: 1;
+}
+
+.bars, .buttons {
+    max-with: 450px;
+    
+    
+    flex-gow: 1;
+    box-sizing: border-box;
+    min-width: 200px;
+    font-family: 'Press Start 2P', sans-serif; 
+}
 .bars {
     display: flex;
+    flex: 1;
+    background-color: beige;
+    height: px;
+    padding: 
+    /*margin-top: 400px;
+    border-bottom: 0;*/ 
+/*}
+/*
+.bars input {
+    height: 30px;
+    background-color: rgb(216, 205, 193);
+}
+
+.buttons {
+    /*margin-top: auto;
+    margin: auto;*/
+/*    
+    align-self: center;
+    flex: 1
+}
+
+#calculator {
+    padding: 10px;
+    background-color: rgba(85, 85, 85, 0.904);
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+*/
+
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('PressStart2P-Regular.ttf') format('truetype');
+    /* Include additional font file formats for better cross-browser compatibility */
+}
+
+body, body * {
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+body {
+    background-color: rgb(175, 175, 202);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.row {
+    display: flex;
+    width: 450px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.row button {
+    flex: 1;
 }
 
 #display {
@@ -25,4 +112,43 @@ body {
 
 #result {
     flex: 1;
+}
+
+.bars,
+.buttons {
+    max-width: 450px;
+    flex-grow: 1;
+    box-sizing: border-box;
+    min-width: 200px;
+    font-family: 'Roboto';
+}
+
+.bars {
+    display: flex;
+    flex: 1;
+    background-color: beige;
+    height: auto;
+    padding: 10px;
+}
+
+.bars input {
+    height: 30px;
+    background-color: rgb(216, 205, 193);
+}
+
+.buttons {
+    align-self: center;
+    flex: 1;
+}
+
+#calculator {
+    padding: 10px;
+    background-color: rgba(85, 85, 85, 0.904);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5%;
+}
+
+.buttons button {
+    height: 40px;
 }
