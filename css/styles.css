@@ -153,3 +153,16 @@ body {
 .buttons button {
     height: 40px;
 }
+
+.delete {
+    background-color: rgb(119, 36, 36);
+    color: white;
+}
+
+.clear {
+    font-weight: bold;
+}
+
+.equal {
+    background-color: rgb(118, 204, 132);
+}

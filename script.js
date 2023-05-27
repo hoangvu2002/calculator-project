@@ -1,6 +1,6 @@
 // Create a function add
 const add = function(a, b) {
-    return parseFloat((a + b).toFixed(4));
+    return parseFloat((a + b));//.toFixed(4));
       
 };
 // Create a function subtract
@@ -131,9 +131,12 @@ operatorButtons.forEach((button) => {
     button.addEventListener("click", () => {
         if ((operator === "")/*&&(typeof preAnwer ==="undefined")*/) {
             operator = button.textContent;
-
+            //operator = display.value.match(/(?<=\d)[+\-*/](?=\d+)/)[0];
             result.value = '';
 
+        } else if ((operator!=="")&&(typeof preAnwer === "undefined")&&(firstNum<0)) {
+            operator = button.textContent;
+            display.value = `${firstNum}` + operator;
         } else if ((operator!=="")&&(typeof preAnwer === "undefined")){
             //secondNum = parseFloat(display.value);
             //display.value = "";
@@ -143,17 +146,24 @@ operatorButtons.forEach((button) => {
             //display.value = "";
             //firstNum = 0;
             operator = `${button.textContent}`;
-
+            //operator = display.value.match(/(?<=\d)[+\-*/](?=\d+)/)[0];
             result.value = '';
 
 
+        } else if ((operator!=="")&&!(typeof preAnwer === "undefined")&&(preAnwer<0)) {
+            operator = button.textContent;
+            operand = display.value.split(/(?<=\d)[+\-*/](?=\d+)/)
+            firstNum = operand[0];
+            preAnwer = operations[operator](firstNum,secondNum);
+            display.value = `${preAnwer}` + operator;
+            
         } else if ((operator!=="")&&!(typeof preAnwer === "undefined")) {
             //operator = button.textContent;
             preAnwer = operations[operator](firstNum,secondNum);
             display.value = `${preAnwer}`+`${button.textContent}`;
             //result.value = operations[operator](firstNum,secondNum);
             operator = `${button.textContent}`;
-
+            //operator = display.value.match(/(?<=\d)[+\-*/](?=\d+)/)[0];
             result.value = '';
             //debug
             //subOperator = operator.slice();
@@ -166,7 +176,8 @@ operatorButtons.forEach((button) => {
             //result.display = operations[button.textContent](firstNum,secondNum);
 
             //debug
-            operator = button.textContent;
+            //operator = button.textContent;
+            operator = display.value.match(/(?<=\d)[+\-*/](?=\d+)/)[0];
             //firstNum = preAnwer;
             display.value = preAnwer + operator;
 
