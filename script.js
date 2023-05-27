@@ -51,7 +51,8 @@ const operatorArray = ["+","-","*","/"];
 delButton = document.querySelector(".delete");
 delButton.addEventListener("click", () => {
     display.value = display.value.slice(0,-1);
-    operand = display.value.split(/[+\-*/]/);
+    //operand = display.value.split(/[+\-*/]/);
+    operand = display.value.split(/(?<=\d)[+\-*/](?=\d+)/);
     firstNum = parseFloat(operand[0]);
     secondNum = parseFloat(operand[1]);
     
@@ -68,7 +69,8 @@ delButton.addEventListener("click", () => {
 
 function append(number) {
     display.value += `${number}`;
-    operand = display.value.split(/[+\-*/]/)
+    //operand = display.value.split(/[+\-*/]/)
+    operand = display.value.split(/(?<=\d)[+\-*/](?=\d+)/)
     //if (operator === "") {
     //    firstNum = parseFloat(display.value);
     //}
